@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import TodoList from "./components/TodoList";
 
 const GlobalStyle = createGlobalStyle`
-  /* Import google fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
   /* Reset style */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -51,13 +50,17 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-
+  * {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+  }
 `;
 
 function App() {
   return (
     <>
       <GlobalStyle />
+      <TodoList />
     </>
   );
 }
