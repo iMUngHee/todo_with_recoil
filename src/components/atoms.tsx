@@ -3,21 +3,23 @@ import { atom, selector } from "recoil";
 const todoData = localStorage.getItem("ToDos");
 const todoJSON = JSON.parse(todoData as any);
 
-export enum Categories {
-  "TO_DO" = "TO_DO",
-  "DOING" = "DOING",
-  "DONE" = "DONE",
-}
+const categoriesData = localStorage.getItem("Categories");
+const categoriesJSON = JSON.parse(categoriesData as any);
+
+export const categoriesState = atom<string[]>({
+  key: "categories",
+  default: categoriesJSON || ["TO_DO", "DOING", "DONE"],
+});
 
 export interface ITodo {
   text: string;
   id: number;
-  category: Categories;
+  category: string;
 }
 
-export const categoryState = atom<Categories>({
+export const categoryState = atom<string>({
   key: "category",
-  default: Categories.TO_DO,
+  default: "TO_DO",
 });
 
 export const todoState = atom<ITodo[]>({
@@ -30,11 +32,6 @@ export const todoSelector = selector({
   get: ({ get }) => {
     const todos = get(todoState);
     const category = get(categoryState);
-    if (category === Categories.TO_DO)
-      return todos.filter((todo) => todo.category === Categories.TO_DO);
-    if (category === Categories.DOING)
-      return todos.filter((todo) => todo.category === Categories.DOING);
-    if (category === Categories.DONE)
-      return todos.filter((todo) => todo.category === Categories.DONE);
+    return todos.filter((todo) => todo.category === category);
   },
 });

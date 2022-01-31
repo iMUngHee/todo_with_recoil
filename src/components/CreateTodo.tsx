@@ -20,10 +20,12 @@ const Input = styled.input`
   padding: 1rem;
   font-size: 20px;
   &::placeholder {
-    color: ${prop => prop.theme.textColor};
+    color: ${(prop) => prop.theme.textColor};
+    opacity: 0.5;
   }
 `;
 const Button = styled.button`
+  cursor: pointer;
   color: ${(prop) => prop.theme.textColor};
   background: none;
   border: none;
@@ -31,6 +33,9 @@ const Button = styled.button`
   padding-left: 1rem;
   padding-right: 2rem;
   font-size: 30px;
+  &:hover {
+    color: #c4c4c4;
+  }
 `;
 
 const CreateTodo = () => {

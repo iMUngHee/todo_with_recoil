@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import AddCategory from "./components/AddCategory";
 import TodoList from "./components/TodoList";
 
 const GlobalStyle = createGlobalStyle`
@@ -56,11 +57,23 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      <TodoList />
+      <Container>
+        <AddCategory />
+        <TodoList />
+      </Container>
     </>
   );
 }
