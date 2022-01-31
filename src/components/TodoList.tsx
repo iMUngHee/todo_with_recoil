@@ -25,6 +25,9 @@ const Form = styled.div`
   }
   display: flex;
   select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
     color: ${(prop) => prop.theme.textColor};
     padding-left: 1rem;
@@ -33,6 +36,10 @@ const Form = styled.div`
     font-size: 15px;
     &:hover {
       color: #c4c4c4;
+    }
+    @media only screen and (max-width: 768px) {
+      padding-left: 0.5rem;
+      font-size: 10px;
     }
   }
   border-bottom: 1px solid white;

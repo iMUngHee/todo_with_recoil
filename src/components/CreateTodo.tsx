@@ -23,6 +23,10 @@ const Input = styled.input`
     color: ${(prop) => prop.theme.textColor};
     opacity: 0.5;
   }
+  @media only screen and (max-width: 768px) {
+    padding: 0.2rem;
+    font-size: 15px;
+  }
 `;
 const Button = styled.button`
   cursor: pointer;
@@ -35,6 +39,11 @@ const Button = styled.button`
   font-size: 30px;
   &:hover {
     color: #c4c4c4;
+  }
+  @media only screen and (max-width: 768px) {
+    padding-right: 1rem;
+    padding-left: 0.5rem;
+    font-size: 15px;
   }
 `;
 
